@@ -1,5 +1,6 @@
 .primary__container {
     height: 100vh;
+    position: relative;
 }
 
 .game__container {

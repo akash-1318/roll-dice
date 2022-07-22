@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./game.css";
+import {Winner} from "../../components/index"
 
 function Game() {
   const navigate = useNavigate();
@@ -78,6 +79,10 @@ function Game() {
           </div>
         </div>
       </div>
+      {user1Score >= 15 || user2Score >= 15 ? (<Winner
+      users = {usersname}
+      scores = {score}
+      />) : null}
     </div>
   );
 }
