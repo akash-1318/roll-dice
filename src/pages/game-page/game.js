@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./game.css";
-import {Winner} from "../../components/index"
+import { Winner, History } from "../../components/index";
 
 function Game() {
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function Game() {
   });
   const [diceNumber, setDiceNumber] = useState(1);
   const [rollFlag, setRollFlag] = useState(false);
+  const [showHistory, setShowHistory] = useState(false)
 
   let diceNumbers = [1, 2, 3, 4, 5, 6];
   let usersname = JSON.parse(localStorage.getItem("users"));
@@ -42,6 +43,13 @@ function Game() {
     }, 1500);
   }
 
+  useEffect(() => {
+    if(user1Score >= 15 || user2Score >= 15){
+        let prevData = JSON.parse(localStorage.getItem('history')) || []
+        localStorage.setItem("history", JSON.stringify([...prevData, {usersname, score}]))
+    }
+  }, [score])
+
   return (
     <div className="primary__container">
       <div className="game__container">
@@ -54,10 +62,13 @@ function Game() {
           <p className="user__score">{user2Score}</p>
         </div>
         <div className="middle__container">
-          <p className="reset__game" onClick={() => {
-              navigate("/")
-              localStorage.removeItem("users")
-          }}>
+          <p
+            className="reset__game"
+            onClick={() => {
+              navigate("/");
+              localStorage.removeItem("users");
+            }}
+          >
             {" "}
             <i class="bx bx-reset"></i> New game
           </p>
@@ -77,12 +88,18 @@ function Game() {
               <i class="bx bx-rotate-left"></i> Roll
             </p>
           </div>
+          <p className="history" onClick={() => setShowHistory(!showHistory)}>
+            {" "}
+            <i class="bx bx-history"></i> History
+          </p>
         </div>
+        {user1Score >= 15 || user2Score >= 15 ? (
+          <Winner users={usersname} scores={score} />
+        ) : null}
+        {showHistory ? (<History showHistory = {showHistory} 
+        setShowHistory = {setShowHistory}
+        />) : null}
       </div>
-      {user1Score >= 15 || user2Score >= 15 ? (<Winner
-      users = {usersname}
-      scores = {score}
-      />) : null}
     </div>
   );
 }

@@ -38,11 +38,12 @@
     top: 1rem;
     left: 50%;
     transform: translate(-50%,0);
-    height: 80%;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem;
 }
 
 .reset__game {
@@ -57,7 +58,7 @@
     color: var(--secondry-color);
 }
 
-.roll__dice {
+.roll__dice,.history {
     font-size: 4rem;
     font-weight: 200;
     cursor: pointer;
