@@ -66,4 +66,31 @@ h6{
     .input__container > .input__field{
         width: 90%;
     }
+    .middle__container{
+        height: 90vh;
+    }
+    .middle__container > .reset__game{
+        font-size: 3rem;
+    }
+    .left__user > .user__name, .right__user > .user__name{
+        font-size: 4rem;
+    }
+    .middle__container > .dice{
+        font-size: 8rem;
+    }
+    .game__container > .history__main-container {
+        width: 100%;
+        right: -80rem;
+    }
+    @keyframes show-history {
+        0%{
+            right: -80rem;
+        }
+        100%{
+            right: 0rem;
+        }
+    }
+    .history__main-container > .history__header{
+        width: 100%;
+    }
 }

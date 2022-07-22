@@ -61,5 +61,12 @@
 .history__para {
     font-size: 5rem;
     color: var(--primary-color);
-    margin: 5rem 6rem;
+}
+
+.no__history {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

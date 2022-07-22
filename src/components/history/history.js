@@ -22,7 +22,9 @@ function History({ showHistory, setShowHistory }) {
         </p>
       </div>
       {history.length === 0 ? (
-        <p className="history__para">No history!🥱</p>
+        <div className="no__history">
+            <p className="history__para">No history!🥱</p>
+        </div>
       ) : (
         <>
           {history.map((data) => {
