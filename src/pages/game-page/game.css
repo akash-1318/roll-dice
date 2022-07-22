@@ -1,0 +1,90 @@
+.primary__container {
+    height: 100vh;
+}
+
+.game__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.left__user, .right__user {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right__user {
+    background-color: rgb(247, 247, 247);
+}
+
+.user__name {
+    font-size: 8rem;
+    font-weight: 200;
+    color: var(--font-color);
+}
+
+.user__score {
+    font-size: 10rem;
+    font-weight: 100;
+    color: var(--secondry-color);
+}
+
+.middle__container {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset__game {
+    font-size: 4rem;
+    font-weight: 200;
+    color: var(--secondry-color);
+    cursor: pointer;
+}
+
+.dice {
+    font-size: 15rem;
+    color: var(--secondry-color);
+}
+
+.roll__dice {
+    font-size: 4rem;
+    font-weight: 200;
+    cursor: pointer;
+    color: var(--secondry-color);
+}
+
+.active__arrow {
+    font-size: 12rem;
+    color: var(--secondry-color);
+    transition: .3s ease-in;
+}
+
+.active__arrow.turn__right{
+    transform: rotate(180deg);
+}
+
+.dice.roll__dice-user1{
+    animation: roll-it .3s linear 3 alternate backwards;
+}
+
+@keyframes roll-it {
+    0%{
+        transform: rotate(-20deg);
+    }
+    50%{
+        transform: rotate(20deg)
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
