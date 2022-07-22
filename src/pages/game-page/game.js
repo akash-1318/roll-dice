@@ -48,7 +48,7 @@ function Game() {
         let prevData = JSON.parse(localStorage.getItem('history')) || []
         localStorage.setItem("history", JSON.stringify([...prevData, {usersname, score}]))
     }
-  }, [score])
+  }, [user1Score,user2Score])
 
   return (
     <div className="primary__container">
